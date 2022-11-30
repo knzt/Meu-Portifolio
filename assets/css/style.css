@@ -1,0 +1,314 @@
+/* ESTILOS DA HEADER */
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header .photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.header .name {
+    text-align: start;
+    font-family: 'Neue Machina';
+}
+
+.information p {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: .5rem;
+    font-size: 1.25rem;
+}
+
+.information p::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-right: .5rem;
+}
+
+.information .job::before {
+    background-image: url('/assets/img/icons/job.svg');
+}
+
+.information .location::before {
+    background-image: url('/assets/img/icons/location.svg');
+}
+
+.information .phone::before {
+    background-image: url('/assets/img/icons/phone.svg');
+}
+
+.information .email::before {
+    background-image: url('/assets/img/icons/email.svg');
+}
+
+.information .linkedin::before {
+    content: '';
+    background-image: url('../img/icons/linkedin.png');
+}
+
+.information .github::before {
+    content: '';
+    background-image: url('../img/icons/github.png');
+    background-size: 26px 25px;
+    
+}
+
+@media only screen and (min-width: 768px) {
+    .header {
+        display: grid;
+        grid-template-areas: 
+        "photo name"
+        "photo information"
+        ;
+    }
+
+    .header .photo {
+        grid-area: photo;
+    }
+
+    .header .name {
+        grid-area: name;
+    }
+
+    .header .information {
+        grid-area: information;
+    }
+}
+
+/* ESTILOS DOS BOTÕES E LISTAS*/
+
+.acordeon {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: 1px solid white;
+    border-radius: 1rem;
+    margin: 1rem 0 1rem 0;
+    transition: 0.25s;
+}
+
+.acordeon .content {
+    overflow: hidden;
+    height: 0;
+    opacity: 0;
+    transition: .25s ease-in-out;
+}
+
+.acordeon.open, .acordeon:hover {
+    background-color: #55569E;
+    border-color: #55569E;
+}
+
+.acordeon .trigger {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    background-color: transparent;
+}
+
+.acordeon .trigger::after {
+    content: '';
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url('/assets/img/icons/arrow-top.svg');
+    transform: rotate(180deg);
+    transition: .25s;
+}
+
+.acordeon .trigger:hover {
+    cursor: pointer;
+}
+
+.acordeon.open .content {
+    display: block;
+    height: auto;
+    opacity: 1;
+    padding: 0 1rem 1rem 2rem;
+}
+
+.acordeon.open .trigger::after{
+    transform: rotate(0);
+}
+
+.languages {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.languages li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-right: 1rem;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: .5rem;
+}
+
+.languages li::before {
+    content: '';
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url('/assets/img/icons/check.svg');
+    width: 1rem;
+    height: 1rem;
+    margin-right: .5rem;
+
+}
+
+.portfolio {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    flex-direction: column;
+}
+
+.portfolio li {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-bottom: 1rem;
+}
+
+.portfolio li .projectTitle {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: white;  
+    font-weight: 700;
+    margin: 0;
+    margin-bottom: .5rem;
+}
+
+.portfolio li .projectTitle.github::before {
+    content: '';
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url('/assets/img/icons/github.svg');
+    width: 1rem;
+    height: 1rem;
+    margin-right: .5rem;
+}
+
+.educationExtra,
+.education {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.educationExtra li,
+.education li {
+    margin-bottom: 1rem;
+}
+
+.educationExtra li .title,
+.education li .title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+    font-weight: 700;
+    margin: 0;
+}
+
+.educationExtra li .period,
+.education li .period {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: .5rem;
+}
+
+.educationExtra li .period::before,
+.education li .period::before {
+    content: "";
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url('../img/icons/calendar.svg');
+    margin-right: .5rem;
+}
+
+.education li h3 {
+    font-size: 20px;
+    margin: 0 0 8px;
+}
+
+.skills {
+    display: flex;
+    flex-direction: column;
+}
+
+.skills .hardSkills ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.skills .hardSkills ul li img {
+    max-width: 50px;
+    margin: 0.5rem;
+}
+
+.skills .softSkills ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+}
+
+.skills .softSkills ul li {
+    margin-left: 2rem;
+    padding: .5rem;
+}
+
+
+@media only screen and (min-width: 768px) {
+    .skills {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
